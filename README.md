@@ -1,16 +1,37 @@
-# React + Vite
+# ✦ Anu AI Chatbot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A powerful, multilingual AI chatbot built by **Anu Sri Vaddi** 💫
 
-Currently, two official plugins are available:
+🌐 **Live Demo:** [anu-ai-chatbot-nu.vercel.app](https://anu-ai-chatbot-nu.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 💾 **Chat History** — Saved to localStorage, persists between sessions
+- ⎘ **Copy Button** — On every AI message
+- ↻ **Regenerate** — Fresh response anytime
+- 🎨 **10 Unique Themes** — Aurora, Sunset, Forest, Candy, Ocean, Ember, Galaxy, Mint, White, Black
+- 🖼 **Image Upload** — Ask questions about any image
+- 🌍 **Multilingual** — Answers in any language
+- 🎙 **Voice Recorder** — Tap the mic to record audio
+- 👤 **Built by Anu Sri Vaddi 💫**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- **React + Vite**
+- **Groq API** (LLaMA 3.3 70B)
+- **Vercel** (Hosting)
+
+---
+
+## 👤 Author
+
+**Anu Sri Vaddi** 💫  
+GitHub: [@anu-x19](https://github.com/anu-x19)
+
+---
+
+> Built with ❤️ by Anu Sri Vaddi
