@@ -304,27 +304,32 @@ export default function App() {
     reader.readAsDataURL(file);
   };
 
-  const toggleRecord = async () => {
+  const toggleRecord = () => {
+    if (!("webkitSpeechRecognition" in window || "SpeechRecognition" in window)) {
+      alert("Voice not supported! Please use Chrome browser.");
+      return;
+    }
     if (recording) {
       mediaRecorderRef.current?.stop();
       setRecording(false);
       return;
     }
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mr = new MediaRecorder(stream);
-      mediaRecorderRef.current = mr;
-      const chunks = [];
-      mr.ondataavailable = e => chunks.push(e.data);
-      mr.onstop = () => {
-        stream.getTracks().forEach(t => t.stop());
-        setInput(p => p + " 🎙️[Audio recorded]");
-      };
-      mr.start();
-      setRecording(true);
-    } catch {
-      alert("Microphone access denied.");
-    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "en-US";
+    mediaRecorderRef.current = recognition;
+    recognition.onstart = () => setRecording(true);
+    recognition.onend = () => setRecording(false);
+    recognition.onresult = (e) => {
+      const transcript = e.results[0][0].transcript;
+      setInput(p => p ? p + " " + transcript : transcript);
+    };
+    recognition.onerror = () => {
+      setRecording(false);
+    };
+    recognition.start();
   };
 
   const css = `
@@ -516,4 +521,3 @@ export default function App() {
     </>
   );
 }
-
